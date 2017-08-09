@@ -13,7 +13,14 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    x: 100, // Change these coordinates a little if you can't reproduce the bug immediately
+    y: 101, // The bug seems to be dependent on the users screen resolution as well as the position.
+    width: 300,
+    height: 300,
+    resizable: false,
+    frame: false
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
